@@ -21,6 +21,8 @@
 | **Deployment Speed** | Fast | Slightly slower | Fast |
 | **Licensing Risks** | None | None | None |
 
+# Advantages and Disadvantages of Each Tool
+
 |  | Minikube | Kind | k3d |
 |------|-----------|-----------|-------------|
 | **Advantages** | Simple, fast, stable, Kubectl/Helm support, monitoring, Dashboard, large community. | Flexible, multi-node, monitoring, Dashboard, active community. | Fast, lightweight, monitoring, Dashboard, active community. |
