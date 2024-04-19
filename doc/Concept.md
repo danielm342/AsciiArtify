@@ -28,17 +28,13 @@
 | **Advantages** | Simple, fast, stable, Kubectl/Helm support, monitoring, Dashboard, large community. | Flexible, multi-node, monitoring, Dashboard, active community. | Fast, lightweight, monitoring, Dashboard, active community. |
 | **Disadvantages** | Not flexible, not suitable for complex configurations, can be slower for multi-node clusters. |  More complex, can be slower, not flexible for some functions. |  Not flexible, does not support multi-node, can be slower. |
 
-## Install Minikube and deploy 
+## Install Minikube
 ```
    curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
    && chmod +x minikube
    minikube start
-
-   docker build hello-world .
-   kubectl apply -f hello-world.yaml
-   kubectl apply -f hello-world-service.yaml
 ```
-![Image](./minikube.gif)
+
 
 ## Installing Kind
 ```
@@ -50,11 +46,16 @@
     kubectl cluster-info --context kind-kind
 ```
 
-## Installing k3d
+## Installing k3d and deploy
 ```
     curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
-    k3d cluster create
+    k3d cluster create my-cluster
+    kubectl apply -f hello-world.yaml
+    kubectl apply -f hello-world-service.yaml
+    kubectl get service hello-world
 ```
+
+![Image](./k3d.gif)
 
 ## Licensing risks in Docker
 An important aspect to consider is licensing. Docker is open source, but some of the features it offers work under a commercial license. On the other hand, Podman is completely open source and does not require any commercial permissions. To avoid legal problems with Docker licensing, it is recommended to use Podman as a more secure option.
